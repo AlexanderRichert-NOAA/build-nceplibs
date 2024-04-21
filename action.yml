@@ -87,6 +87,7 @@ runs:
         cmake-args: ${{ inputs.w3emc-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bufr;${{ github.workspace }}/nceplibs/NCEPLIBS-bacio"
         git-ref: ${{ inputs.w3emc-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-add: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}
 
     - name: "Build 'sp'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
@@ -117,6 +118,7 @@ runs:
         cmake-args: ${{ inputs.g2c-cmake-args }}
         git-ref: ${{ inputs.g2c-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-add: -jasper-${{ inputs.jasper-version }}-${{ inputs.jasper-cmake-args }}
 
     - name: "Build 'g2'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
@@ -127,3 +129,4 @@ runs:
         cmake-args: ${{ inputs.g2-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bacio;${{ github.workspace }}/nceplibs/NCEPLIBS-w3emc;${{ github.workspace }}/nceplibs/jasper"
         git-ref: ${{ inputs.g2-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-add: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}-w3emc-${{ inputs.w3emc-version }}-${{ inputs.w3emc-cmake-args }}-jasper-${{ inputs.jasper-version }}-${{ inputs.jasper-cmake-args }}
