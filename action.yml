@@ -1,7 +1,7 @@
 # This action.yml provides a GitHub Action for building NCEP libraries with
 # CMake.
 # Alex Richert, April 2024
-name: 'Build NCEPLIBS
+name: 'Build NCEPLIBS'
 description: 'Builds and installs requested versions/configurations of various NCEPLIBS'
 
 inputs:
