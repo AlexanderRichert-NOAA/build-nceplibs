@@ -51,6 +51,6 @@ runs:
       with:
         package-name: jasper
         package-org: jasper-software
-        cmake-args: inputs.jasper-cmake-args
-        git-ref: inputs.jasper-version
-        repo-cache: inputs.repo-cache
+        cmake-args: ${{ inputs.jasper-cmake-args }}
+        git-ref: ${{ inputs.jasper-version }}
+        repo-cache: ${{ inputs.repo-cache }}
