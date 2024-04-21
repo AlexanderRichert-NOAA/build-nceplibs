@@ -45,6 +45,7 @@ runs:
   using: "composite"
 
   steps:
+
     - name: "Build 'jasper'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: inputs.jasper-version
@@ -53,4 +54,14 @@ runs:
         package-org: jasper-software
         cmake-args: ${{ inputs.jasper-cmake-args }}
         git-ref: ${{ inputs.jasper-version }}
+        repo-cache: ${{ inputs.repo-cache }}
+
+    - name: "Build 'bacio'"
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
+      if: inputs.bacio-version
+      with:
+        package-name: bacio
+        package-org: NOAA-EMC
+        cmake-args: ${{ inputs.bacio-cmake-args }}
+        git-ref: ${{ inputs.bacio-version }}
         repo-cache: ${{ inputs.repo-cache }}
