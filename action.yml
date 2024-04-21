@@ -48,7 +48,7 @@ runs:
 
     - name: "Build 'jasper'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@develop
-      if: ${{ inputs.jasper-version }}
+      if: ${{ inputs.jasper-version != false }}
       with:
         package-name: jasper
         package-org: jasper-software
@@ -58,7 +58,7 @@ runs:
 
     - name: "Build 'bacio'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@develop
-      if: ${{ inputs.bacio-version }}
+      if: ${{ inputs.bacio-version != false }}
       with:
         package-name: bacio
         package-org: NOAA-EMC
