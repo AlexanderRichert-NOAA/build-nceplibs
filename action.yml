@@ -6,7 +6,7 @@ description: 'Builds and installs requested versions/configurations of various N
 
 inputs:
   jasper-version:
-    default: ${{ inputs.g2-version != false || inputs.g2c-version != false }}
+    default: false
   jasper-cmake-args:
     default: ""
   bacio-version:
