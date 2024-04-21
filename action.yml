@@ -60,7 +60,7 @@ runs:
       uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.bacio-version }}
       with:
-        package-name: bacio
+        package-name: NCEPLIBS-bacio
         package-org: NOAA-EMC
         cmake-args: ${{ inputs.bacio-cmake-args }}
         git-ref: ${{ inputs.bacio-version }}
