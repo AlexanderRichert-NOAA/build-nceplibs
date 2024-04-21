@@ -72,7 +72,7 @@ runs:
       with:
         package-name: NCEPLIBS-bufr
         package-org: NOAA-EMC
-        cmake-args: ${{ inputs.bufr-cmake-args }} -DBUILD_TESTING=OFF
+        cmake-args: ${{ inputs.bufr-cmake-args }} -DTEST_FILE_DIR=/dev/null
         git-ref: ${{ inputs.bufr-version }}
         repo-cache: ${{ inputs.repo-cache }}
 
@@ -82,6 +82,6 @@ runs:
       with:
         package-name: NCEPLIBS-w3emc
         package-org: NOAA-EMC
-        cmake-args: ${{ inputs.w3emc-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs"
+        cmake-args: ${{ inputs.w3emc-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bufr;${{ github.workspace }}/nceplibs/NCEPLIBS-bacio"
         git-ref: ${{ inputs.w3emc-version }}
         repo-cache: ${{ inputs.repo-cache }}
