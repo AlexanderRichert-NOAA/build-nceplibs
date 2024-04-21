@@ -24,7 +24,7 @@ inputs:
   g2c-version:
     default: ""
   g2c-cmake-args:
-    default: ""
+    default: "-DJasper_ROOT=${{ github.workspace }}/nceplibs/jasper"
   ip-version:
     default: ""
   ip-cmake-args:
@@ -84,4 +84,40 @@ runs:
         package-org: NOAA-EMC
         cmake-args: ${{ inputs.w3emc-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bufr;${{ github.workspace }}/nceplibs/NCEPLIBS-bacio"
         git-ref: ${{ inputs.w3emc-version }}
+        repo-cache: ${{ inputs.repo-cache }}
+
+    - name: "Build 'sp'"
+      if: ${{ inputs.sp-version }}
+      with:
+        package-name: NCEPLIBS-sp
+        package-org: NOAA-EMC
+        cmake-args: ${{ inputs.sp-cmake-args }}
+        git-ref: ${{ inputs.sp-version }}
+        repo-cache: ${{ inputs.repo-cache }}
+
+    - name: "Build 'ip'"
+      if: ${{ inputs.ip-version }}
+      with:
+        package-name: NCEPLIBS-ip
+        package-org: NOAA-EMC
+        cmake-args: ${{ inputs.ip-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-sp
+        git-ref: ${{ inputs.ip-version }}
+        repo-cache: ${{ inputs.repo-cache }}
+
+    - name: "Build 'g2c'"
+      if: ${{ inputs.g2c-version }}
+      with:
+        package-name: NCEPLIBS-g2c
+        package-org: NOAA-EMC
+        cmake-args: ${{ inputs.g2c-cmake-args }}
+        git-ref: ${{ inputs.g2c-version }}
+        repo-cache: ${{ inputs.repo-cache }}
+
+    - name: "Build 'g2'"
+      if: ${{ inputs.g2-version }}
+      with:
+        package-name: NCEPLIBS-g2
+        package-org: NOAA-EMC
+        cmake-args: ${{ inputs.g2-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bacio;${{ github.workspace }}/nceplibs/NCEPLIBS-w3emc;${{ github.workspace }}/nceplibs/jasper;${{ github.workspace }}/nceplibs/NCEPLIBS-g2c"
+        git-ref: ${{ inputs.g2-version }}
         repo-cache: ${{ inputs.repo-cache }}
