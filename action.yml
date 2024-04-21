@@ -40,8 +40,6 @@ inputs:
   repo-cache:
     description: 'Cache built packages through "actions/cache"'
     default: false
-  cache-checkout-build-version:
-    default: develop
 
 runs:
   using: "composite"
@@ -49,7 +47,7 @@ runs:
   steps:
 
     - name: "Build 'jasper'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.jasper-version }}
       with:
         package-name: jasper
@@ -59,7 +57,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'bacio'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.bacio-version }}
       with:
         package-name: NCEPLIBS-bacio
@@ -69,7 +67,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'bufr'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.bufr-version }}
       with:
         package-name: NCEPLIBS-bufr
@@ -79,7 +77,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'w3emc'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.w3emc-version }}
       with:
         package-name: NCEPLIBS-w3emc
@@ -90,7 +88,7 @@ runs:
         key-add: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}
 
     - name: "Build 'sp'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.sp-version }}
       with:
         package-name: NCEPLIBS-sp
@@ -100,7 +98,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'ip'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.ip-version }}
       with:
         package-name: NCEPLIBS-ip
@@ -110,7 +108,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'g2c'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.g2c-version }}
       with:
         package-name: NCEPLIBS-g2c
@@ -121,7 +119,7 @@ runs:
         key-add: -jasper-${{ inputs.jasper-version }}-${{ inputs.jasper-cmake-args }}
 
     - name: "Build 'g2'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build@${{ inputs.cache-checkout-build-version }}
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.g2-version }}
       with:
         package-name: NCEPLIBS-g2
