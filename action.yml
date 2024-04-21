@@ -46,7 +46,7 @@ runs:
 
   steps:
     - name: "Build 'jasper'"
-      uses: AlexanderRichert-NOAA/cache-checkout-build
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: inputs.jasper-version
       with:
         package-name: jasper
