@@ -87,6 +87,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'sp'"
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.sp-version }}
       with:
         package-name: NCEPLIBS-sp
@@ -96,6 +97,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'ip'"
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.ip-version }}
       with:
         package-name: NCEPLIBS-ip
@@ -105,6 +107,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'g2c'"
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.g2c-version }}
       with:
         package-name: NCEPLIBS-g2c
@@ -114,6 +117,7 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
 
     - name: "Build 'g2'"
+      uses: AlexanderRichert-NOAA/cache-checkout-build@develop
       if: ${{ inputs.g2-version }}
       with:
         package-name: NCEPLIBS-g2
