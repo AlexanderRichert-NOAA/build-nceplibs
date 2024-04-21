@@ -102,7 +102,7 @@ runs:
       with:
         package-name: NCEPLIBS-ip
         package-org: NOAA-EMC
-        cmake-args: ${{ inputs.ip-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-sp
+        cmake-args: ${{ inputs.ip-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-sp"
         git-ref: ${{ inputs.ip-version }}
         repo-cache: ${{ inputs.repo-cache }}
 
@@ -122,6 +122,6 @@ runs:
       with:
         package-name: NCEPLIBS-g2
         package-org: NOAA-EMC
-        cmake-args: ${{ inputs.g2-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bacio;${{ github.workspace }}/nceplibs/NCEPLIBS-w3emc;${{ github.workspace }}/nceplibs/jasper;${{ github.workspace }}/nceplibs/NCEPLIBS-g2c"
+        cmake-args: ${{ inputs.g2-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bacio;${{ github.workspace }}/nceplibs/NCEPLIBS-w3emc;${{ github.workspace }}/nceplibs/jasper"
         git-ref: ${{ inputs.g2-version }}
         repo-cache: ${{ inputs.repo-cache }}
