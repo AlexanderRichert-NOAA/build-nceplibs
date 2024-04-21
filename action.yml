@@ -6,35 +6,35 @@ description: 'Builds and installs requested versions/configurations of various N
 
 inputs:
   jasper-version:
-    default: false
+    default: ""
   jasper-cmake-args:
     default: ""
   bacio-version:
-    default: false
+    default: ""
   bacio-cmake-args:
     default: ""
   bufr-version:
-    default: false
+    default: ""
   bufr-cmake-args:
     default: ""
   g2-version:
-    default: false
+    default: ""
   g2-cmake-args:
     default: ""
   g2c-version:
-    default: false
+    default: ""
   g2c-cmake-args:
     default: ""
   ip-version:
-    default: false
+    default: ""
   ip-cmake-args:
     default: ""
   sp-version:
-    default: false
+    default: ""
   sp-cmake-args:
     default: ""
   w3emc-version:
-    default: false
+    default: ""
   w3emc-cmake-args:
     default: ""
   repo-cache:
@@ -48,7 +48,7 @@ runs:
 
     - name: "Build 'jasper'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@develop
-      if: ${{ inputs.jasper-version != false }}
+      if: ${{ inputs.jasper-version }}
       with:
         package-name: jasper
         package-org: jasper-software
@@ -58,7 +58,7 @@ runs:
 
     - name: "Build 'bacio'"
       uses: AlexanderRichert-NOAA/cache-checkout-build@develop
-      if: ${{ inputs.bacio-version != false }}
+      if: ${{ inputs.bacio-version }}
       with:
         package-name: bacio
         package-org: NOAA-EMC
