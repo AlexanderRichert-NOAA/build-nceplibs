@@ -4,7 +4,8 @@ This repository provides a GitHub Action for checking out and building several
 NCEP libraries, as well as caching the resulting code 
 (currently this is only supported for repository caches through the 
 [actions/cache](https://github.com/actions/cache) action). It is intended to
-provide an 
+provide a consolidated means of installing NCEPLIBS dependencies in NCEPLIBS 
+CI workflows.
 
 This repository supports [NCEPLIBS](https://github.com/NOAA-EMC/NCEPLIBS) CI
 workflows.
