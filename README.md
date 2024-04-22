@@ -1,4 +1,4 @@
-# build-nceplibs
+# GitHub CI Action: build-nceplibs
 
 This repository provides a GitHub Action for checking out and building several
 NCEP libraries, as well as caching the resulting code 
