@@ -36,7 +36,7 @@ this Action does not automatically identify dependencies, therefore it is
 necessary for the user to explicitly request versions for the entire dependency
 chain.
 
-See `actions.yml` for the full list of available options and their defaults.
+See `action.yml` for the full list of available options and their defaults.
 
 ## Disclaimer
 
