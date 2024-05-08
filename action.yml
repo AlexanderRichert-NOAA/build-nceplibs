@@ -39,7 +39,7 @@ inputs:
     default: ""
   repo-cache:
     description: 'Cache built packages through "actions/cache"'
-    default: false
+    default: true
 
 runs:
   using: "composite"
