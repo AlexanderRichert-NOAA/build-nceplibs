@@ -40,6 +40,12 @@ inputs:
   repo-cache:
     description: 'Cache built packages through "actions/cache"'
     default: true
+  key-prefix:
+    description: "String to prepend to cache keys (for, e.g., compiler tracking)"
+    default: ""
+  key-suffix:
+    description: "String to append to cache key (for, e.g., dependency tracking)"
+    default: ""
 
 runs:
   using: "composite"
@@ -55,6 +61,8 @@ runs:
         cmake-args: ${{ inputs.jasper-cmake-args }}
         git-ref: ${{ inputs.jasper-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'bacio'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -65,6 +73,8 @@ runs:
         cmake-args: ${{ inputs.bacio-cmake-args }}
         git-ref: ${{ inputs.bacio-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'bufr'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -75,6 +85,8 @@ runs:
         cmake-args: ${{ inputs.bufr-cmake-args }} -DTEST_FILE_DIR=/dev/null
         git-ref: ${{ inputs.bufr-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'w3emc'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -86,6 +98,8 @@ runs:
         git-ref: ${{ inputs.w3emc-version }}
         repo-cache: ${{ inputs.repo-cache }}
         key-add: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'sp'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -96,6 +110,8 @@ runs:
         cmake-args: ${{ inputs.sp-cmake-args }}
         git-ref: ${{ inputs.sp-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'ip'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -106,6 +122,8 @@ runs:
         cmake-args: ${{ inputs.ip-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-sp"
         git-ref: ${{ inputs.ip-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'g2c'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -117,6 +135,8 @@ runs:
         git-ref: ${{ inputs.g2c-version }}
         repo-cache: ${{ inputs.repo-cache }}
         key-add: -jasper-${{ inputs.jasper-version }}-${{ inputs.jasper-cmake-args }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
 
     - name: "Build 'g2'"
       uses: NOAA-EMC/ci-build-cmake-code@develop
@@ -127,4 +147,6 @@ runs:
         cmake-args: ${{ inputs.g2-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bacio;${{ github.workspace }}/nceplibs/NCEPLIBS-w3emc;${{ github.workspace }}/nceplibs/jasper"
         git-ref: ${{ inputs.g2-version }}
         repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: ${{ inputs.key-suffix }}
         key-add: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}-w3emc-${{ inputs.w3emc-version }}-${{ inputs.w3emc-cmake-args }}-jasper-${{ inputs.jasper-version }}-${{ inputs.jasper-cmake-args }}
