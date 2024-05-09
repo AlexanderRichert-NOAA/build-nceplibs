@@ -31,10 +31,11 @@ To use this Action, include the following step in your GitHub Actions workflow:
           w3emc-version: v2.10.0
           repo-cache: true
 ```
-which will build and cache bacio and w3emc for the requested versions. Note that
-this Action does not automatically identify dependencies, therefore it is
-necessary for the user to explicitly request versions for the entire dependency
-chain.
+which will build and cache bacio and w3emc for the requested versions (only
+packages with `<package name>-version` set will be built). Note that this 
+Action does not automatically identify dependencies, therefore it is
+necessary for the user to explicitly request versions for the entire
+dependency chain.
 
 See `action.yml` for the full list of available options and their defaults.
 
