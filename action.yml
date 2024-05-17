@@ -24,7 +24,7 @@ inputs:
   g2c-version:
     default: ""
   g2c-cmake-args:
-    default: "-DJasper_ROOT=${{ github.workspace }}/nceplibs/jasper"
+    default: ""
   ip-version:
     default: ""
   ip-cmake-args:
@@ -130,7 +130,7 @@ runs:
       with:
         package-name: NCEPLIBS-g2c
         package-org: NOAA-EMC
-        cmake-args: ${{ inputs.g2c-cmake-args }}
+        cmake-args: ${{ inputs.g2c-cmake-args }} -DCMAKE_PREFIX_PATH"=${{ github.workspace }}/nceplibs/jasper"
         git-ref: ${{ inputs.g2c-version }}
         repo-cache: ${{ inputs.repo-cache }}
         key-prefix: ${{ inputs.key-prefix }}
