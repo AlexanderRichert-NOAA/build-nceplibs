@@ -29,6 +29,10 @@ inputs:
     default: ""
   ip-cmake-args:
     default: ""
+  nemsio-version:
+    default: ""
+  nemsio-cmake-args:
+    default: ""
   sp-version:
     default: ""
   sp-cmake-args:
@@ -147,3 +151,15 @@ runs:
         repo-cache: ${{ inputs.repo-cache }}
         key-prefix: ${{ inputs.key-prefix }}
         key-suffix: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}-w3emc-${{ inputs.w3emc-version }}-${{ inputs.w3emc-cmake-args }}-jasper-${{ inputs.jasper-version }}-${{ inputs.jasper-cmake-args }}${{ inputs.key-suffix }}
+
+    - name: "Build 'nemsio'"
+      uses: NOAA-EMC/ci-build-cmake-code@develop
+      if: ${{ inputs.nemsio-version }}
+      with:
+        package-name: NCEPLIBS-nemsio
+        package-org: NOAA-EMC
+        cmake-args: ${{ inputs.nemsio-cmake-args }} -DCMAKE_PREFIX_PATH="${{ github.workspace }}/nceplibs/NCEPLIBS-bufr;${{ github.workspace }}/nceplibs/NCEPLIBS-bacio;${{ github.workspace }}/nceplibs/NCEPLIBS-w3emc"
+        git-ref: ${{ inputs.nemsio-version }}
+        repo-cache: ${{ inputs.repo-cache }}
+        key-prefix: ${{ inputs.key-prefix }}
+        key-suffix: -bacio-${{ inputs.bacio-version }}-${{ inputs.bacio-cmake-args }}-w3emc-${{ inputs.w3emc-version }}-${{ inputs.w3emc-cmake-args }}${{ inputs.key-suffix }}
